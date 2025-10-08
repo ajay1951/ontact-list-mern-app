@@ -1,0 +1,192 @@
+/* frontend/src/App.css (Corrected Version) */
+
+/* --- 1. Global Styles & Font --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- 2. Main Container & Title --- */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    color: #1c2938;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* --- 3. Form Styling (Add & Edit) --- */
+.add-form,
+.edit-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='tel'] {
+    /* ==================================================================== */
+    /*                            THE KEY FIX                             */
+    /* 'flex: 1' is a shorthand that tells the input fields to flexibly   */
+    /* grow and shrink to fill the available space, leaving room for the button. */
+    flex: 1;
+    min-width: 0; /* Prevents overflow issues in some flexbox scenarios */
+    /* ==================================================================== */
+
+    padding: 12px 15px;
+    border: 1px solid #dcdfe6;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+input[type='tel']:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+/* --- 4. Button Styling --- */
+button {
+    flex-shrink: 0; /* Prevents buttons from getting squished */
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+.add-form button {
+    background-color: #28a745;
+}
+
+.edit-form button[type="submit"] {
+    background-color: #28a745;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.edit-btn {
+    background-color: #007bff;
+}
+
+.cancel-btn {
+    background-color: #6c757d;
+}
+
+/* --- 5. Contact List Styling --- */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+li .edit-form {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.contact-details {
+    flex-grow: 1;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.contact-details strong {
+    font-weight: 600;
+    color: #343a40;
+    min-width: 120px;
+}
+
+.contact-details span {
+    color: #6c757d;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* --- 6. Feedback & Utility Classes --- */
+.error-msg {
+    color: #c81e1e;
+    background-color: #fde8e8;
+    border: 1px solid #f5c0c0;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* --- 7. Responsive Styles --- */
+@media (max-width: 768px) {
+    body { padding: 10px; }
+    .container { padding: 20px; margin: 20px auto; }
+    h1 { font-size: 1.8em; }
+
+    .add-form, .edit-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .edit-form input, .edit-form button {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .contact-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        width: 100%;
+    }
+
+    .contact-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
